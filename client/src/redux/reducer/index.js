@@ -2,6 +2,8 @@ const initialState = {
   pokemons: [],
   types: [],
   allPokemons: [],
+  detail: [],
+  error: {},
 };
 
 function rootReducer(state = initialState, action) {
@@ -18,6 +20,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         types: action.payload,
       };
+
     case "GET_FILTER_TYPES":
       return {
         ...state,
@@ -28,6 +31,7 @@ function rootReducer(state = initialState, action) {
                 return p.types.some((t) => t.name === action.payload);
               }),
       };
+
     case "GET_FILTER_CREATED":
       const filterCreate =
         action.payload === "database"
@@ -37,6 +41,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         pokemons: action.payload === "all" ? state.allPokemons : filterCreate,
       };
+
     case "GET_ORDER_ALPHABETICALLY":
       let orderAlpha =
         action.payload === "a-z"
@@ -62,6 +67,11 @@ function rootReducer(state = initialState, action) {
               }
               return 0;
             });
+      return {
+        ...state,
+        pokemons: orderAlpha,
+      };
+
     case "GET_ORDER_STROKE":
       let orderStroke =
         action.payload === "minortomajor"
@@ -83,10 +93,27 @@ function rootReducer(state = initialState, action) {
               }
               return 0;
             });
-
       return {
         ...state,
         pokemons: orderStroke,
+      };
+
+    case "GET_DETAILS":
+      return {
+        ...state,
+        detail: action.payload,
+      };
+
+    case "ERROR_POKEMONS":
+      return {
+        ...state,
+        error: action.payload,
+      };
+    case "REMOVE_STATE":
+      return {
+        ...state,
+        error: {},
+        detail: [],
       };
 
     default:

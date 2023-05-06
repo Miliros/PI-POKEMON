@@ -1,0 +1,56 @@
+.searchBardiv {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.inputSearb {
+  border-radius: 5px;
+  margin-right: 10px;
+  border: 1px solid black;
+  padding: 8px 15px 8px 15px;
+  width: 350px;
+}
+
+.buttonAdd {
+  /* background-color: rgba(73, 211, 170, 0.836); */
+  border-radius: 5px;
+  padding: 8px 15px 8px 15px;
+}
+.buttonAdd:hover {
+  transition: 0.2s;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.cntLinks {
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.createdAndHome {
+  /* background-color: rgba(73, 211, 170, 0.836); */
+  color: black;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+.createdAndHome:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  transform: scale(1.05);
+}
+
+.logo {
+  height: 50px;
+  width: 100px;
+  object-fit: fill;
+  margin-right: 20px;
+}

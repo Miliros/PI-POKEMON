@@ -1,0 +1,19 @@
+.divHome {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+}
+
+.divHomeOne {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.loading{
+  padding-top: 200px;
+
+}

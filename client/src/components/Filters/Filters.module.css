@@ -1,0 +1,28 @@
+.containerFilters {
+  display: flex;
+  justify-content: space-between;
+  width: 67%;
+  margin-bottom: 10px;
+  padding: 0.5px;
+
+}
+.containerTypes {
+  margin-right: 10px;
+  
+}
+.divFilters {
+  display: flex;
+}
+.divOrder {
+  display: flex;
+}
+.containerOrder {
+  margin-right: 10px;
+}
+.divFilt{
+  font-size: 25px;
+}
+.select{
+  border-radius: 5px;
+  font-size: 18px;
+}

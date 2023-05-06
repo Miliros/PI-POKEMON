@@ -4,9 +4,10 @@ import {
   getFilterTypes,
   getFilterCreated,
   getOrderAlphabetically,
-  getOrderStroke
+  getOrderStroke,
 } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import styles from "./Filters.module.css";
 
 export default function Filters({ setCheckState }) {
   const dispatch = useDispatch();
@@ -32,48 +33,58 @@ export default function Filters({ setCheckState }) {
   const handldeOrderStroke = (e) => {
     setCheckState(true);
     dispatch(getOrderStroke(e.target.value));
-  }
+  };
 
   return (
-    <div>
+    <div className={styles.containerFilters}>
       <div>
-        <label>Tipos </label>
-        <select onChange={(e) => handleFilterTypes(e)}>
-          <option value="all">Todos</option>
-          {types &&
-            types.map((t, index) => (
-              <option key={index} value={t.name}>
-                {t.name}
-              </option>
-            ))}
-        </select>
+        <p className={styles.divFilt}>Filters</p>
+        <div className={styles.divFilters}>
+          <div className={styles.containerTypes}>
+            <label className={styles.select}>Types </label>
+            <select className={styles.select} onChange={(e) => handleFilterTypes(e)}>
+              <option value="all">All</option>
+              {types &&
+                types.map((t, index) => (
+                  <option key={index} value={t.name}>
+                    {t.name}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <div>
+            <label className={styles.select}>Create - Api </label>
+            <select className={styles.select} onChange={(e) => handleFilterCreated(e)}>
+              <option value="all">All</option>
+              <option value="database">Create</option>
+              <option value="api">Api</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div>
-        <label>Creados - Api </label>
-        <select onChange={(e) => handleFilterCreated(e)}>
-          <option value="all">Todos</option>
-          <option value="database">Creados</option>
-          <option value="api">Api</option>
-        </select>
-      </div>
-      <div>
-        <label>Order alphabetically </label>
-        <select onChange={(e) => handldeOrderAlphabetically(e)}>
-          <option>-</option>
+      <p className={styles.divFilt}>Order</p>
+      <div className={styles.divOrder}>
+        <div className={styles.containerOrder}>
+          <label className={styles.select}>Alphabetically </label>
+          <select  className={styles.select} onChange={(e) => handldeOrderAlphabetically(e)}>
+            <option>-</option>
 
-          <option value="a-z">A-Z</option>
-          <option value="z-a">Z-A</option>
-        </select>
-      </div>
-      <div>
-        <label>Order stroke </label>
-        <select onChange={(e) => handldeOrderStroke(e)}>
-          <option>-</option>
+            <option value="a-z">A-Z</option>
+            <option value="z-a">Z-A</option>
+          </select>
+        </div>
+        <div>
+          <label className={styles.select}>Stroke </label>
+          <select className={styles.select} onChange={(e) => handldeOrderStroke(e)}>
+            <option>-</option>
 
-          <option value="majortominor">Major to minor</option>
-          <option value="minortomajor">Minor to major</option>
-        </select>
+            <option value="majortominor">Major to minor</option>
+            <option value="minortomajor">Minor to major</option>
+          </select>
+        </div>
       </div>
+    </div>
     </div>
   );
 }

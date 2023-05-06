@@ -1,7 +1,22 @@
-ul.paginado li{
-        font-weight: bold;
-        text-decoration: underline;
-         display:inline;
-         padding-left:5px;
-         padding-right:5px;
-    }
+.paginado {
+  display: flex;
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
+  justify-content: center;
+  border-radius: 25px;
+  margin: 5px;
+}
+
+.number {
+  cursor: pointer;
+  margin: 5px;
+  font-size: 16px;
+  padding: 6px 12px 6px 12px;
+  border-radius: 5px;
+}
+
+.number:hover {
+  transition: 0.2s;
+  transform: scale(1.1);
+}
